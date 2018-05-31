@@ -1,0 +1,1626 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>HTML5 Demo: Drag and drop</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1561.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #0000ee; -webkit-text-stroke: #0000ee}
+    span.s1 {font-kerning: none}
+    span.s2 {text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
+    span.s3 {font-kerning: none; color: #000000; -webkit-text-stroke: 0px #000000}
+    td.td1 {margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+    td.td2 {width: 759.0px; margin: 0.5px 0.5px 0.5px 0.5px; padding: 1.0px 1.0px 1.0px 1.0px}
+  </style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;html lang="en"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;head&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;meta charset=utf-8&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;meta name="viewport" content="width=620"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;title&gt;HTML5 Demo: Drag and drop&lt;/title&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;link rel="stylesheet" href="<a href="http://192.168.0.166/css/html5demos.css"><span class="s2">css/html5demos.css</span></a>"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script src="<a href="http://192.168.0.166/js/h5utils.js"><span class="s2">js/h5utils.js</span></a>"&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p3"><span class="s3">&lt;script src='<a href="https://sdk.appadhoc.com/ab.plus.js"><span class="s2">https://sdk.appadhoc.com/ab.plus.js</span></a>'&gt;&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">adhoc('init', {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">appKey: 'ADHOC_9177bfdb-b293-40f7-918b-73888a32675a'</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">})</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/head&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;body&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;section id="wrapper"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;div id="carbonads-container"&gt;&lt;div class="carbonad"&gt;&lt;div id="azcarbon"&gt;&lt;/div&gt;&lt;script type="text/javascript"&gt;var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/14060/azcarbon_2_1_0_VERT"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);&lt;/script&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;header&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;h1&gt;Drag and drop&lt;/h1&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/header&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;style type="text/css"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">li {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">list-style: none;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">li a {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">text-decoration: none;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">color: #000;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">margin: 10px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">width: 150px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">border: 3px dashed #999;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">background: #eee;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">padding: 10px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">display: block;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">*[draggable=true] {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">-moz-user-select:none;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">-khtml-user-drag: element;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">cursor: move;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">*:-khtml-drag {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">background-color: rgba(238,238,238, 0.5);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">li a:hover:after {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">content: ' (drag me)';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">ul {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">margin-left: 200px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">min-height: 300px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">li.over {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">border-color: #333;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">background: #ccc;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">#bin {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">background: url(images/bin.jpg) top right no-repeat;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">height: 250px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">width: 166px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">float: left;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">border: 5px solid #000;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">position: relative;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">margin-top: 0;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">#bin.over {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">background: url(images/bin.jpg) top left no-repeat;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">#bin p {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">font-weight: bold;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">text-align: center;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">position: absolute;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">bottom: 20px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">width: 166px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">font-size: 32px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">color: #fff;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">text-shadow: #000 2px 2px 2px;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/style&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;article&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;p&gt;Drag the list items over the dustbin, and drop them to have the bin eat the item&lt;/p&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;div id="bin"&gt;&lt;/div&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;ul&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;li&gt;&lt;a id="one" href="<a href="http://192.168.0.166/testh5.html#"><span class="s2">#</span></a>"&gt;one&lt;/a&gt;&lt;/li&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;li&gt;&lt;a href="<a href="http://192.168.0.166/testh5.html#"><span class="s2">#</span></a>" id="two"&gt;two&lt;/a&gt;&lt;/li&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;li&gt;&lt;a href="<a href="http://192.168.0.166/testh5.html#"><span class="s2">#</span></a>" id="three"&gt;three&lt;/a&gt;&lt;/li&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;li&gt;&lt;a href="<a href="http://192.168.0.166/testh5.html#"><span class="s2">#</span></a>" id="four"&gt;four&lt;/a&gt;&lt;/li&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;li&gt;&lt;a href="<a href="http://192.168.0.166/testh5.html#"><span class="s2">#</span></a>" id="five"&gt;five&lt;/a&gt;&lt;/li&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/ul&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/article&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;!-- adhoc sdk --&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">(function() {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var ad = document.createElement("script");</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">ad.src = "http://localhost:3000/js/adhoc.router.js?v=" + new Date().getTime();</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">ad.onload = function(){</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">__adhoc__.init('ADHOC_efb37ecf-9ff1-4a6e-af85-b654b06311d6');</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">};</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var s = document.getElementsByTagName("script")[0];</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">s.parentNode.insertBefore(ad, s);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">})();</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;!-- adhoc sdk end --&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var eat = ['yum!', 'gulp', 'burp!', 'nom'];</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var yum = document.createElement('p');</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var msie = /*@cc_on!@*/0;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">yum.style.opacity = 1;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var links = document.querySelectorAll('li &gt; a'), el = null;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">for (var i = 0; i &lt; links.length; i++) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">el = links[i];</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">el.setAttribute('draggable', 'true');</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">addEvent(el, 'dragstart', function (e) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">e.dataTransfer.effectAllowed = 'copy'; // only dropEffect='copy' will be dropable</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">});</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var bin = document.querySelector('#bin');</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">addEvent(bin, 'dragover', function (e) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">if (e.preventDefault) e.preventDefault(); // allows us to drop</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">this.className = 'over';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">e.dataTransfer.dropEffect = 'copy';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">return false;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">});</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">// to get IE to work</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">addEvent(bin, 'dragenter', function (e) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">this.className = 'over';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">return false;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">});</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">addEvent(bin, 'dragleave', function () {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">this.className = '';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">});</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">addEvent(bin, 'drop', function (e) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">if (e.stopPropagation) e.stopPropagation(); // stops the browser from redirecting...why???</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var el = document.getElementById(e.dataTransfer.getData('Text'));</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">el.parentNode.removeChild(el);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">// stupid nom text + fade effect</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">bin.className = '';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">yum.innerHTML = eat[parseInt(Math.random() * eat.length)];</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var y = yum.cloneNode(true);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">bin.appendChild(y);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">setTimeout(function () {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var t = setInterval(function () {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">if (y.style.opacity &lt;= 0) {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">if (msie) { // don't bother with the animation</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">y.style.display = 'none';</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">clearInterval(t);<span class="Apple-converted-space"> </span></span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">} else {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">y.style.opacity -= 0.1;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}, 50);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">}, 250);</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">return false;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">});</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p3"><span class="s3">&lt;a id="html5badge" href="<a href="http://www.w3.org/html/logo/"><span class="s2">http://www.w3.org/html/logo/</span></a>"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;img src="<a href="http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-device-graphics-multimedia-performance-semantics-storage.png"><span class="s2">http://www.w3.org/html/logo/badge/html5-badge-h-connectivity-device-graphics-multimedia-performance-semantics-storage.png</span></a>" width="325" height="64" alt="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage" title="HTML5 Powered with Connectivity / Realtime, Device Access, Graphics, 3D &amp; Effects, Multimedia, Performance &amp; Integration, Semantics, and Offline &amp; Storage"&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/a&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/section&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">try {</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">var pageTracker = _gat._getTracker("UA-1656750-18");</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">pageTracker._trackPageview();</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">} catch(err) {}&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;!--script src=https://www.appadhoc.com/downloads/sdk/ab.js&gt;&lt;/script--&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">adhoc.init('ADHOC_222aace4-77e3-4cff-9a07-cabd49c193e2');</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/script&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;!-- adhoc sdk end --&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/body&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p2"><span class="s1">&lt;/html&gt;</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p1"><span class="s1"></span><br></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
